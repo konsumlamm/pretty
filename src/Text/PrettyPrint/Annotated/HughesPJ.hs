@@ -195,9 +195,7 @@ data Doc a
   | NoDoc                                            -- ^ The empty set of documents.
   | Beside (Doc a) Bool (Doc a)                      -- ^ True <=> space between.
   | Above (Doc a) Bool (Doc a)                       -- ^ True <=> never overlap.
-#if __GLASGOW_HASKELL__ >= 701
   deriving (Generic)
-#endif
 
 {-
 Here are the invariants:
@@ -261,9 +259,7 @@ data TextDetails = Chr  {-# UNPACK #-} !Char -- ^ A single Char fragment
                  | PStr String -- ^ Used to represent a Fast String fragment
                                --   but now deprecated and identical to the
                                --   Str constructor.
-#if __GLASGOW_HASKELL__ >= 701 || __MHS__
                  deriving (Show, Eq, Generic)
-#endif
 
 -- Combining @Doc@ values
 #if __GLASGOW_HASKELL__ >= 800 || __MHS__
@@ -931,9 +927,7 @@ data Style
             -- 50 characters of ribbon to be displayed on a line, while
             -- allowing it to be indented up to 50 characters.
           }
-#if __GLASGOW_HASKELL__ >= 701
   deriving (Show, Eq, Generic)
-#endif
 
 -- | The default style (@mode=PageMode, lineLength=100, ribbonsPerLine=1.5@).
 style :: Style
@@ -952,9 +946,7 @@ data Mode = PageMode
           | OneLineMode
             -- ^ All on one line, 'lineLength' ignored and explicit new lines
             -- (@$$@) are turned into spaces.
-#if __GLASGOW_HASKELL__ >= 701 || __MHS__
           deriving (Show, Eq, Generic)
-#endif
 
 -- | Render the @Doc@ to a String using the default @Style@ (see 'style').
 render :: Doc a -> String

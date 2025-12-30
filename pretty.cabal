@@ -54,7 +54,7 @@ Library
         Text.PrettyPrint.Annotated.HughesPJ
         Text.PrettyPrint.Annotated.HughesPJClass
 
-    build-depends: base >= 4.5 && < 5,
+    build-depends: base >= 4.6 && < 5,
                    deepseq >= 1.1
 
     default-language: Haskell98
@@ -79,7 +79,7 @@ Test-Suite test-pretty
         UnitT3911
         UnitT32
 
-    build-depends: base >= 4.5 && < 5,
+    build-depends: base >= 4.6 && < 5,
                    deepseq >= 1.1,
                    QuickCheck >= 2.5 && <3
 
@@ -92,7 +92,7 @@ benchmark pretty-bench
   main-is: Bench.hs
   hs-source-dirs: bench
 
-  build-depends: base >= 4.5 && < 5
+  build-depends: base >= 4.6 && < 5
                , criterion
                , pretty
 

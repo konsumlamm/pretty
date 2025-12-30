@@ -115,9 +115,7 @@ infixl 5 $$, $+$
 -- | The abstract type of documents. A Doc represents a /set/ of layouts. A
 -- Doc with no occurrences of Union or NoDoc represents just one layout.
 newtype Doc = Doc (Ann.Doc ())
-#if __GLASGOW_HASKELL__ >= 701
                     deriving (Generic)
-#endif
 
 liftList :: ([Ann.Doc ()] -> Ann.Doc ()) -> ([Doc] -> Doc)
 liftList f ds = Doc (f [ d | Doc d <- ds ])
